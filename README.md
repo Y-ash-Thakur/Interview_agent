@@ -107,4 +107,4 @@ Below are previews of the user interface and platform output:
 
 | Dashboard Feed | Live Voice Interview Room |
 | --- | --- |
-| ![Dashboard Output Placeholder](dashboard.png) | ![Interview Room Placeholder](call.png) |
+| ![Dashboard Output Placeholder](/ai_mock_interviews/public/dashboard.png) | ![Interview Room Placeholder](/ai_mock_interviews/public/call.png) |
