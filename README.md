@@ -95,6 +95,9 @@ Open [http://localhost:3000](http://localhost:3000) in your web browser to acces
 ## 👥 Team Members
 
 *   **Yash Thakur** (Lead Full-Stack Developer & AI Integrations)
+*   **Yash Raghuwanshi** ( Developer & AI Integrations)
+*   **Yash Swarnkar** ( Developer & AI Integrations)
+*   **Vivek Sharma** ( Developer & AI Integrations)
 
 ---
 
@@ -104,8 +107,4 @@ Below are previews of the user interface and platform output:
 
 | Dashboard Feed | Live Voice Interview Room |
 | --- | --- |
-| ![Dashboard Output Placeholder](https://placehold.co/600x400/0d0e12/ffffff?text=Dashboard+Feed+Preview) | ![Interview Room Placeholder](https://placehold.co/600x400/0d0e12/ffffff?text=Live+Voice+Interview+Room) |
-
-| AI Performance Feedback |
-| --- |
-| ![Feedback Report Placeholder](https://placehold.co/1200x600/0d0e12/ffffff?text=AI+Generated+Score+Card+%26+Competency+Breakdown) |
+| ![Dashboard Output Placeholder](dashboard.png) | ![Interview Room Placeholder](call.png) |
