@@ -5,8 +5,7 @@ import OpenAI from "openai";
 import { db } from "@/firebase/admin";
 
 const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY!,
+  apiKey: process.env.OPENAI_API_KEY!,
 });
 
 export async function createFeedback(params: CreateFeedbackParams) {
@@ -21,9 +20,9 @@ export async function createFeedback(params: CreateFeedbackParams) {
       )
       .join("");
 
-    // 🚀 Call OpenRouter
+    // 🚀 Call OpenAI
     const completion = await openai.chat.completions.create({
-      model: "mistralai/mixtral-8x7b-instruct",
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
       messages: [
         {
           role: "system",

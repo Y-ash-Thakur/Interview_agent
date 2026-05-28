@@ -72,14 +72,33 @@ const Agent = ({
         console.error("Error stopping Vapi:", e);
       }
 
-      const errMsg = error?.message || error?.error || "";
-      const errStr = typeof error === "object" ? JSON.stringify(error) : String(error);
+      let errMsg = "";
+      let errStr = "";
+
+      if (typeof error === "string") {
+        errMsg = error;
+        errStr = error;
+      } else if (error && typeof error === "object") {
+        const rawErrMsg = error.message || error.errorMsg || error.error || "";
+        errMsg = typeof rawErrMsg === "string" ? rawErrMsg : JSON.stringify(rawErrMsg);
+        try {
+          errStr = JSON.stringify(error);
+        } catch (e) {
+          errStr = String(error);
+        }
+      } else {
+        errMsg = String(error || "");
+        errStr = errMsg;
+      }
+
+      const lowerErrMsg = errMsg.toLowerCase();
+      const lowerErrStr = errStr.toLowerCase();
 
       if (
-        errMsg.toLowerCase().includes("permission") ||
-        errMsg.toLowerCase().includes("notallowed") ||
-        errStr.toLowerCase().includes("permission") ||
-        errStr.toLowerCase().includes("notallowed")
+        lowerErrMsg.includes("permission") ||
+        lowerErrMsg.includes("notallowed") ||
+        lowerErrStr.includes("permission") ||
+        lowerErrStr.includes("notallowed")
       ) {
         toast.error("Microphone access denied. Please enable microphone permission in your browser and try again.");
       } else {

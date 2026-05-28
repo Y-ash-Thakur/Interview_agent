@@ -4,8 +4,7 @@ import { db } from "@/firebase/admin";
 import { getRandomInterviewCover } from "@/lib/utils";
 
 const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPENROUTER_API_KEY!,
+  apiKey: process.env.OPENAI_API_KEY!,
 });
 
 export async function POST(request: Request) {
@@ -21,9 +20,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // 🚀 Call OpenRouter (LLM)
+    // 🚀 Call OpenAI (LLM)
     const completion = await openai.chat.completions.create({
-      model: "mistralai/mixtral-8x7b-instruct",
+      model: process.env.OPENAI_MODEL || "gpt-4o-mini",
       messages: [
         {
           role: "system",
